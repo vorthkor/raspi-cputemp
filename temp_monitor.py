@@ -1,12 +1,7 @@
 from gpiozero import CPUTemperature
-from time import sleep, strftime, time
-# import matplotlib.pyplot as plt
+from time import sleep, strftime
 
 cpu = CPUTemperature()
-
-'''plt.ion()
-x = []
-y = []'''
 
 
 def write_temp(temp):
@@ -14,19 +9,15 @@ def write_temp(temp):
         log.write("{0},{1}\n".format(strftime("%Y-%m-%d %H:%M:%S"), str(temp)))
 
 
-'''
-def graph(temp):
-    y.append(temp)
-    x.append(time())
-    plt.clf()
-    plt.scatter(x, y)
-    plt.plot(x, y)
-    plt.draw()'''
+def main():
+    while True:
+        temp = cpu.temperature
+        write_temp(temp)
+        print(temp)
+        sleep(1)
 
 
-while True:
-    temp = cpu.temperature
-    write_temp(temp)
-    # graph(temp)
-    # plt.pause(1)
-    sleep(1)
+try:
+    main()
+except KeyboardInterrupt:
+    print('\nThanks!\n')
