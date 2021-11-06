@@ -12,11 +12,10 @@ You can run without crontab too.
 
 ## What's new
 
-ver 1.0 - Script only saving temperatures in the CSV file.
-
 ver 2.0 - Removed the matplotlib comments and added the terminal print while saving the values
 at the CSV file.
 
+ver 1.0 - Script only saving temperatures in the CSV file.
 
 ## References
 
